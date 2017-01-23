@@ -6,8 +6,8 @@ package alexis.defranoux.channelmessaging;
 public class Callback {
 
     private String response;
-    private int code;
-    private String accesstoken;
+    public final int code;
+    public final String accesstoken;
 
     public Callback(String response, int code, String accesstoken) {
         this.response = response;

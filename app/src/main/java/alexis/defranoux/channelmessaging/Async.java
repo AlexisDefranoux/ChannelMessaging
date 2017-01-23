@@ -15,14 +15,17 @@ import javax.net.ssl.HttpsURLConnection;
 public class Async extends AsyncTask<Long,Integer, String> {
 
     private Context myContext;
+    private String url;
     private HashMap<String, String> connectInfo = new HashMap<>();
 
     public ArrayList<OnDownloadCompleteListener> listeners = new ArrayList<>();
 
-    public Async(Context myContext, HashMap connectInfo)
+    public Async(Context myContext, HashMap connectInfo, String myUrl)
     {
         this.myContext = myContext;
         this.connectInfo = connectInfo;
+        this.url = myUrl;
+
     }
 
     @Override protected void onPreExecute()
@@ -37,9 +40,9 @@ public class Async extends AsyncTask<Long,Integer, String> {
 
     }
 
-    @Override protected String doInBackground(Long... arg0)
+    @Override protected String doInBackground(Long... params)
     {
-        return performPostCall("http://www.raphaelbischof.fr/messaging/?function=connect", connectInfo);
+        return performPostCall(url, connectInfo);
     }
 
     @Override protected void onPostExecute(String result)
