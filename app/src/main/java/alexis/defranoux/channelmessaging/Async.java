@@ -25,19 +25,16 @@ public class Async extends AsyncTask<Long,Integer, String> {
         this.myContext = myContext;
         this.connectInfo = connectInfo;
         this.url = myUrl;
-
     }
 
     @Override protected void onPreExecute()
     {
         super.onPreExecute();
-
     }
 
     @Override protected void onProgressUpdate(Integer... values)
     {
         super.onProgressUpdate(values);
-
     }
 
     @Override protected String doInBackground(Long... params)

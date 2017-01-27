@@ -7,9 +7,9 @@ import java.util.ArrayList;
  */
 public class Channels {
 
-    private ArrayList<Channel> channels;
+    public final ArrayList<Channel> channels;
 
     public Channels(ArrayList<Channel> channels1){
-
+        this.channels = channels1;
     }
 }
