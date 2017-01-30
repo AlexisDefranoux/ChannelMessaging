@@ -9,7 +9,6 @@ public class Channel {
     public final String name;
     public final int connectedusers;
 
-
     public Channel(int channelID, String name, int connectedusers) {
         this.channelID = channelID;
         this.name = name;

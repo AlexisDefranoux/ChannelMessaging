@@ -5,9 +5,11 @@ package alexis.defranoux.channelmessaging;
  */
 public class MessageAEnvoyer {
 
-    public final String message;
+    public final String response;
+    public final int code;
 
-    public MessageAEnvoyer(String message) {
-        this.message = message;
+    public MessageAEnvoyer(String response, int code) {
+        this.response = response;
+        this.code = code;
     }
 }
