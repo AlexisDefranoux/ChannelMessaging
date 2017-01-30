@@ -17,13 +17,12 @@ public class MessageAdapter extends ArrayAdapter<Message> {
     TextView txtMessage;
     TextView txtNom;
 
-    public MessageAdapter(Context context, int resource, int textViewResourceId, List<Message> objects) {
-        super(context, resource, textViewResourceId, objects);
+    public MessageAdapter(Context context, int textViewResourceId, List<Message> objects) {
+        super(context, textViewResourceId, objects);
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-
 
         LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View rowView = inflater.inflate(R.layout.row_message, parent, false);

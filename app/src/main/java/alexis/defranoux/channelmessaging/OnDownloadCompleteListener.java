@@ -5,6 +5,6 @@ package alexis.defranoux.channelmessaging;
  */
 public interface OnDownloadCompleteListener {
 
-    public void onDownloadComplete(String result);
+    public void onDownloadComplete(String result, int requestCode);
 
 }

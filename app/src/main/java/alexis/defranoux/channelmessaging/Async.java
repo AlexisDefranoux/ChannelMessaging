@@ -14,17 +14,19 @@ import javax.net.ssl.HttpsURLConnection;
  */
 public class Async extends AsyncTask<Long,Integer, String> {
 
-    private Context myContext;
+    private Context Context;
+    public int requestCode;
     private String url;
     private HashMap<String, String> connectInfo = new HashMap<>();
 
     public ArrayList<OnDownloadCompleteListener> listeners = new ArrayList<>();
 
-    public Async(Context myContext, HashMap connectInfo, String myUrl)
+    public Async(Context myContext, HashMap connectInfo, String myUrl, int myRequestCode)
     {
-        this.myContext = myContext;
+        this.Context = myContext;
         this.connectInfo = connectInfo;
         this.url = myUrl;
+        this.requestCode = myRequestCode;
     }
 
     @Override protected void onPreExecute()
@@ -46,7 +48,7 @@ public class Async extends AsyncTask<Long,Integer, String> {
     {
         for(OnDownloadCompleteListener listener : listeners)
         {
-            listener.onDownloadComplete(result);
+            listener.onDownloadComplete(result, requestCode);
         }
     }
 

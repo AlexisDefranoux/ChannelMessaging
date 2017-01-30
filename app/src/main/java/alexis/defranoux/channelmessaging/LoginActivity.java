@@ -35,7 +35,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         txtMdp = (TextView) findViewById(R.id.txtMdp);
 
         edId = (EditText) findViewById(R.id.edId);
+        edId.setText("adefr");
+
         edMdp = (EditText) findViewById(R.id.edMdp);
+        edMdp.setText("alexisdefranoux");
     }
 
     @Override
@@ -45,14 +48,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             HashMap<String, String> connectInfo = new HashMap<>();
             connectInfo.put("username", edId.getText().toString());
             connectInfo.put("password", edMdp.getText().toString());
-            Async Async = new Async(getApplicationContext(), connectInfo,"http://www.raphaelbischof.fr/messaging/?function=connect");
+            Async Async = new Async(getApplicationContext(), connectInfo,"http://www.raphaelbischof.fr/messaging/?function=connect",3);
             Async.setOnDownloadCompleteListener(this);
             Async.execute();
         }
     }
 
     @Override
-    public void onDownloadComplete(String result) {
+    public void onDownloadComplete(String result, int requestCode) {
         Gson gson = new Gson();
         Callback obj = gson.fromJson(result, Callback.class);
 
