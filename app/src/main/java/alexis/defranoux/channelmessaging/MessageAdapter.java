@@ -1,11 +1,15 @@
 package alexis.defranoux.channelmessaging;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
 
 import java.util.List;
 
@@ -17,6 +21,7 @@ public class MessageAdapter extends ArrayAdapter<Message> {
     TextView txtMessage;
     TextView txtNom;
     TextView txtDate;
+    ImageView imageView;
 
     public MessageAdapter(Context context, int textViewResourceId, List<Message> objects) {
         super(context, textViewResourceId, objects);
@@ -36,6 +41,12 @@ public class MessageAdapter extends ArrayAdapter<Message> {
 
         txtNom = (TextView) rowView.findViewById(R.id.txtNom);
         txtNom.setText(getItem(position).username);
+
+        imageView = (ImageView) rowView.findViewById(R.id.imageView);
+        /*Drawable drawable  = Drawable.createFromPath(getItem(position).imageUrl);
+        imageView.setImageDrawable(drawable);*/
+
+        Glide.with(getContext()).load(getItem(position).imageUrl).into(imageView);
 
         return rowView;
     }

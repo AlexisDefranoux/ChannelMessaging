@@ -12,7 +12,7 @@
         android:textColor="@color/background_floating_material_dark"
         android:textSize="15sp"
         android:layout_marginBottom="0sp"
-        android:layout_marginLeft="13sp"
+        android:layout_marginLeft="50sp"
         android:layout_marginTop="5sp"
         android:layout_marginRight="13sp" />
 
@@ -37,8 +37,19 @@
         android:textColor="@color/abc_btn_colored_borderless_text_material"
         android:textSize="20sp"
         android:layout_marginBottom="0sp"
-        android:layout_marginLeft="13sp"
+        android:layout_marginLeft="50sp"
         android:layout_marginTop="-35sp"
         android:layout_marginRight="13sp" />
+
+    <ImageView
+        android:layout_width="50sp"
+        android:layout_height="50sp"
+        android:id="@+id/imageView"
+        android:minWidth="50sp"
+        android:minHeight="50sp"
+        android:layout_marginTop="-50sp"
+        android:maxWidth="50sp"
+        android:maxHeight="50sp"
+        />
 
 </LinearLayout>
