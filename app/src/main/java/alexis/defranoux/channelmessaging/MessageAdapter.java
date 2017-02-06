@@ -16,6 +16,7 @@ public class MessageAdapter extends ArrayAdapter<Message> {
 
     TextView txtMessage;
     TextView txtNom;
+    TextView txtDate;
 
     public MessageAdapter(Context context, int textViewResourceId, List<Message> objects) {
         super(context, textViewResourceId, objects);
@@ -29,6 +30,9 @@ public class MessageAdapter extends ArrayAdapter<Message> {
 
         txtMessage = (TextView) rowView.findViewById(R.id.txtMessage);
         txtMessage.setText(getItem(position).message);
+
+        txtDate = (TextView) rowView.findViewById(R.id.txtDate);
+        txtDate.setText(getItem(position).date);
 
         txtNom = (TextView) rowView.findViewById(R.id.txtNom);
         txtNom.setText(getItem(position).username);

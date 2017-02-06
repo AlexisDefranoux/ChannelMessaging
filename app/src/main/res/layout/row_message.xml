@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal" android:layout_width="match_parent"
+    android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="1">
 
@@ -8,9 +8,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Medium Text"
-        android:id="@+id/txtNom"
-        android:textColor="@color/abc_input_method_navigation_guard"
-        android:textSize="20sp"
+        android:id="@+id/txtDate"
+        android:textColor="@color/background_floating_material_dark"
+        android:textSize="15sp"
         android:layout_marginBottom="0sp"
         android:layout_marginLeft="13sp"
         android:layout_marginTop="5sp"
@@ -18,7 +18,7 @@
 
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="34dp"
         android:text="Medium Text"
         android:id="@+id/txtMessage"
         android:textColor="@color/abc_input_method_navigation_guard"
@@ -27,5 +27,18 @@
         android:layout_marginLeft="13sp"
         android:layout_marginTop="5sp"
         android:layout_marginRight="13sp"
-        android:layout_gravity="left" />
+        android:layout_gravity="right" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Medium Text"
+        android:id="@+id/txtNom"
+        android:textColor="@color/abc_btn_colored_borderless_text_material"
+        android:textSize="20sp"
+        android:layout_marginBottom="0sp"
+        android:layout_marginLeft="13sp"
+        android:layout_marginTop="-35sp"
+        android:layout_marginRight="13sp" />
+
 </LinearLayout>

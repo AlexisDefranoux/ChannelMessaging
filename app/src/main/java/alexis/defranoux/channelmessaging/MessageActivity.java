@@ -60,9 +60,16 @@ public class MessageActivity extends AppCompatActivity implements OnDownloadComp
 
     public void onDownloadComplete(String result, int requestCode) {
         Gson gson = new Gson();
+
+
+
         if(requestCode == 1) {
             Messages obj = gson.fromJson(result, Messages.class);
+            int index = listView.getFirstVisiblePosition();
+            View v = listView.getChildAt(0);
+            int top = (v == null) ? 0 : (v.getTop() - listView.getPaddingTop());
             listView.setAdapter(new MessageAdapter(getApplicationContext(), R.layout.channel_message_activity, obj.messages));
+            listView.setSelectionFromTop(index, top);
         }else {
             MessageAEnvoyer obj = gson.fromJson(result, MessageAEnvoyer.class);
             if(obj.code == 200) {
