@@ -13,6 +13,8 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 
+import jp.wasabeef.glide.transformations.CropCircleTransformation;
+
 /**
  * Created by defranoa on 30/01/2017.
  */
@@ -22,9 +24,11 @@ public class MessageAdapter extends ArrayAdapter<Message> {
     TextView txtNom;
     TextView txtDate;
     ImageView imageView;
+    private Context context;
 
     public MessageAdapter(Context context, int textViewResourceId, List<Message> objects) {
         super(context, textViewResourceId, objects);
+        this.context = context;
     }
 
     @Override
@@ -46,7 +50,11 @@ public class MessageAdapter extends ArrayAdapter<Message> {
         /*Drawable drawable  = Drawable.createFromPath(getItem(position).imageUrl);
         imageView.setImageDrawable(drawable);*/
 
-        Glide.with(getContext()).load(getItem(position).imageUrl).into(imageView);
+
+        /*Glide.with(getContext())
+                .load(getItem(position))
+                .bitmapTransform(new CropCircleTransformation(context))
+                .into(imageView);*/
 
         return rowView;
     }
