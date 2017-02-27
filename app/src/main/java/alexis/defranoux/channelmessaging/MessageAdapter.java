@@ -47,14 +47,14 @@ public class MessageAdapter extends ArrayAdapter<Message> {
         txtNom.setText(getItem(position).username);
 
         imageView = (ImageView) rowView.findViewById(R.id.imageView);
-        /*Drawable drawable  = Drawable.createFromPath(getItem(position).imageUrl);
-        imageView.setImageDrawable(drawable);*/
 
+        //Image sans cercle
+        //Glide.with(getContext()).load(getItem(position).imageUrl).into(imageView);
 
-        /*Glide.with(getContext())
-                .load(getItem(position))
-                .bitmapTransform(new CropCircleTransformation(context))
-                .into(imageView);*/
+        Glide.with(getContext())
+                .load(getItem(position).imageUrl)
+                .bitmapTransform(new CropCircleTransformation(getContext()))
+                .into(imageView);
 
         return rowView;
     }
