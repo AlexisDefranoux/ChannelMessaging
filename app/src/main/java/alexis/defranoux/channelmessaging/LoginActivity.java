@@ -31,13 +31,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         btValider = (Button) findViewById(R.id.btValider);
         btValider.setOnClickListener(this);
 
-        txtId = (TextView) findViewById(R.id.txtId);
-        txtMdp = (TextView) findViewById(R.id.txtMdp);
-
-        edId = (EditText) findViewById(R.id.edId);
+        edId = (EditText) findViewById(R.id.EditId);
         edId.setText("adefr");
 
-        edMdp = (EditText) findViewById(R.id.edMdp);
+        edMdp = (EditText) findViewById(R.id.EditMdp);
         edMdp.setText("alexisdefranoux");
     }
 

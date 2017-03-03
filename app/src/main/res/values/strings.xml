@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ChannelMessaging</string>
+    <string name="login">Identifiant</string>
+    <string name="mdp">Mot de passe</string>
 </resources>
