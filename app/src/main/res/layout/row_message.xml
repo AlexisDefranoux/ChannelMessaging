@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:text="Medium Text"
         android:id="@+id/txtNom"
-        android:textColor="@color/abc_btn_colored_borderless_text_material"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="20sp"
         android:layout_marginBottom="0sp"
         android:layout_marginLeft="50sp"

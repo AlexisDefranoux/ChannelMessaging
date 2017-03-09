@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -13,6 +14,8 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 
 import java.util.HashMap;
+
+import alexis.defranoux.channelmessaging.Fragments.MessageFragment;
 
 /**
  * Created by defranoa on 30/01/2017.
@@ -38,6 +41,8 @@ public class MessageActivity extends AppCompatActivity implements OnDownloadComp
         btEnvoyer = (Button) findViewById(R.id.btEnvoyer);
         btEnvoyer.setOnClickListener(this);
 
+        MessageFragment mFrag = (MessageFragment) getSupportFragmentManager().findFragmentById(R.id.listView);
+
         id = getIntent().getIntExtra("id",0);
 
         Runnable r = new Runnable() {
@@ -60,8 +65,6 @@ public class MessageActivity extends AppCompatActivity implements OnDownloadComp
 
     public void onDownloadComplete(String result, int requestCode) {
         Gson gson = new Gson();
-
-
 
         if(requestCode == 1) {
             Messages obj = gson.fromJson(result, Messages.class);

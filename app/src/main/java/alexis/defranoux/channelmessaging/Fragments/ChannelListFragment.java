@@ -41,8 +41,6 @@ public class ChannelListFragment extends Fragment implements OnDownloadCompleteL
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        listView.setAdapter(new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, obj.channels));
-        listView.setOnItemClickListener(this);
 
         HashMap<String, String> connectInfo = new HashMap<>();
         SharedPreferences settings = getActivity().getSharedPreferences(PREFS_NAME, 0);

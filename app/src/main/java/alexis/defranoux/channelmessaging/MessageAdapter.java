@@ -48,9 +48,6 @@ public class MessageAdapter extends ArrayAdapter<Message> {
 
         imageView = (ImageView) rowView.findViewById(R.id.imageView);
 
-        //Image sans cercle
-        //Glide.with(getContext()).load(getItem(position).imageUrl).into(imageView);
-
         Glide.with(getContext())
                 .load(getItem(position).imageUrl)
                 .bitmapTransform(new CropCircleTransformation(getContext()))
