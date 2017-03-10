@@ -1,0 +1,8 @@
+<transitionSet xmlns:android="http://schemas.android.com/apk/res/android">
+    <changeBounds/>
+    <fade android:fadingMode="fade_out" >
+        <targets>
+            <target android:targetId="@id/imageViewLogin" />
+        </targets>
+    </fade>
+</transitionSet>

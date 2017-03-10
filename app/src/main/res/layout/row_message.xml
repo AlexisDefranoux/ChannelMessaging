@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:text="Medium Text"
         android:id="@+id/txtNom"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@color/orange"
         android:textSize="20sp"
         android:layout_marginBottom="0sp"
         android:layout_marginLeft="50sp"

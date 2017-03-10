@@ -11,7 +11,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:id="@+id/llBackground"
     android:weightSum="1"
-    android:background="#ef7f00">
+    android:background="@drawable/gradient_background">
 
     <ImageView
         android:layout_width="183dp"
@@ -19,13 +19,16 @@
         android:id="@+id/imageViewLogin"
         android:layout_gravity="center_horizontal"
         android:src="@drawable/channel_messaging_logo"
-        android:layout_weight="0.09" />
+        android:layout_weight="0.09"
+        android:tint="@color/orange"
+        android:transitionName="@transition/change_image_transform" />
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/input_layout_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColorHint="@color/textColorHint"
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
         android:layout_margin="16dp"
         android:layout_marginTop="50dp">
 
@@ -33,9 +36,12 @@
             android:id="@+id/EditId"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
+            android:textColor="@android:color/black"
             android:inputType="textEmailAddress"
-            android:hint="@string/login" />
+            android:hint="@string/login"
+            android:backgroundTint="@color/orange"
+            android:foregroundTint="@color/orange" />
+            android:textIsSelectable="false" />
 
     </android.support.design.widget.TextInputLayout>
 
@@ -43,26 +49,28 @@
         android:id="@+id/input_layout_mdp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColorHint="@color/textColorHint"
-        android:textColor="@color/textColorHint"
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
         android:layout_margin="16dp">
 
         <EditText
             android:id="@+id/EditMdp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
+            android:textColor="@android:color/black"
             android:inputType="textPassword"
             android:hint="@string/mdp"
-            />
+            android:backgroundTint="@color/orange"
+            android:foregroundTint="@color/orange"
+            android:shadowColor="@android:color/black" />
 
     </android.support.design.widget.TextInputLayout>
 
     <Button
         android:text="Valider"
         android:id="@+id/btValider"
-        android:textColor="@color/colorPrimaryDark"
-        android:background="#ffffff"
+        android:textColor="@color/abc_btn_colored_text_material"
+        android:background="@color/orange"
         android:layout_width="315dp"
         android:padding="16dp"
         android:layout_height="wrap_content"
