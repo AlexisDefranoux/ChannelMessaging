@@ -17,6 +17,7 @@ import java.util.HashMap;
 
 import alexis.defranoux.channelmessaging.Async;
 import alexis.defranoux.channelmessaging.ChannelAdapter;
+import alexis.defranoux.channelmessaging.ChannelListActivity;
 import alexis.defranoux.channelmessaging.Channels;
 import alexis.defranoux.channelmessaging.MessageActivity;
 import alexis.defranoux.channelmessaging.OnDownloadCompleteListener;
@@ -25,7 +26,7 @@ import alexis.defranoux.channelmessaging.R;
 /**
  * Created by defranoa on 27/02/2017.
  */
-public class ChannelListFragment extends Fragment implements OnDownloadCompleteListener, AdapterView.OnItemClickListener {
+public class ChannelListFragment extends Fragment implements OnDownloadCompleteListener {
 
     private ListView listView;
     public static final String PREFS_NAME = "MyPrefsFile";
@@ -54,13 +55,7 @@ public class ChannelListFragment extends Fragment implements OnDownloadCompleteL
         Gson gson = new Gson();
         obj = gson.fromJson(result, Channels.class);
         listView.setAdapter(new ChannelAdapter(getActivity(), R.layout.channel_list_fragment, R.layout.rowlayout, obj.channels));
-        listView.setOnItemClickListener(this);
+        listView.setOnItemClickListener((ChannelListActivity)getActivity());
     }
 
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Intent myIntent = new Intent(getActivity(), MessageActivity.class);
-        myIntent.putExtra("id", obj.channels.get(position).channelID);
-        startActivity(myIntent);
-    }
 }

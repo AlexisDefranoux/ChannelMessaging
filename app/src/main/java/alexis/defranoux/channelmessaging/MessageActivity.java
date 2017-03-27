@@ -32,7 +32,7 @@ public class MessageActivity extends AppCompatActivity implements OnDownloadComp
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.channel_message_activity);
+        setContentView(R.layout.channel_message_fragment);
 
         edMessage = (EditText) findViewById(R.id.edMessage);
 
@@ -71,7 +71,7 @@ public class MessageActivity extends AppCompatActivity implements OnDownloadComp
             int index = listView.getFirstVisiblePosition();
             View v = listView.getChildAt(0);
             int top = (v == null) ? 0 : (v.getTop() - listView.getPaddingTop());
-            listView.setAdapter(new MessageAdapter(getApplicationContext(), R.layout.channel_message_activity, obj.messages));
+            listView.setAdapter(new MessageAdapter(getApplicationContext(), R.layout.channel_message_fragment, obj.messages));
             listView.setSelectionFromTop(index, top);
         }else {
             MessageAEnvoyer obj = gson.fromJson(result, MessageAEnvoyer.class);

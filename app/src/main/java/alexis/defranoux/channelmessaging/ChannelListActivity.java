@@ -12,6 +12,9 @@ import com.google.gson.Gson;
 
 import java.util.HashMap;
 
+import alexis.defranoux.channelmessaging.Fragments.ChannelListFragment;
+import alexis.defranoux.channelmessaging.Fragments.MessageFragment;
+
 /**
  * Created by defranoa on 23/01/2017.
  */
@@ -45,8 +48,15 @@ public class ChannelListActivity extends AppCompatActivity implements OnDownload
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Intent myIntent = new Intent(getApplicationContext(), MessageActivity.class);
-        myIntent.putExtra("id", obj.channels.get(position).channelID);
-        startActivity(myIntent);
+
+        ChannelListFragment fragA = (ChannelListFragment)getSupportFragmentManager().findFragmentById(R.id.fragmentA_ID);
+        MessageFragment fragB = (MessageFragment)getSupportFragmentManager().findFragmentById(R.id.fragmentB_ID);
+        if(fragB == null|| !fragB.isInLayout()){
+            Intent myIntent = new Intent(getApplicationContext(), MessageActivity.class);
+            myIntent.putExtra("id", obj.channels.get(position).channelID);
+            startActivity(myIntent);
+        } else {
+            fragB.changChannelId(obj.channels.get(position).channelID);
+        }
     }
 }

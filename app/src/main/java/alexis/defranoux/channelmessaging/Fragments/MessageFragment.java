@@ -37,7 +37,7 @@ public class MessageFragment extends Fragment implements OnDownloadCompleteListe
     public Button btEnvoyer;
     public EditText edMessage;
     public static final String PREFS_NAME = "MyPrefsFile";
-    public int id;
+    public int id =-1;
     public Handler handler = new Handler();
 
 
@@ -48,34 +48,33 @@ public class MessageFragment extends Fragment implements OnDownloadCompleteListe
         listView = (ListView)v.findViewById(R.id.ltMessage);
         btEnvoyer = (Button)v.findViewById(R.id.btEnvoyer);
         return v;
-
-
-        /*id = getIntent().getIntExtra("id",0);*/
-
     }
 
-    /*public void changChannelId(int id){
-
-    }*/
+    public void changChannelId(int channelId){
+        id = channelId;
+    }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
 
         super.onActivityCreated(savedInstanceState);
+        id = getActivity().getIntent().getIntExtra("id",-1);
         btEnvoyer.setOnClickListener(this);
 
         Runnable r = new Runnable() {
             public void run() {
+                if(id != -1) {
+                    HashMap<String, String> connectInfo = new HashMap<>();
 
-                HashMap<String, String> connectInfo = new HashMap<>();
+                    SharedPreferences settings = getActivity().getSharedPreferences(PREFS_NAME, 0);
+                    connectInfo.put("accesstoken", settings.getString("accesstoken", ""));
+                    connectInfo.put("channelid", String.valueOf(id));
 
-                SharedPreferences settings = getActivity().getSharedPreferences(PREFS_NAME, 0);
-                connectInfo.put("accesstoken", settings.getString("accesstoken",""));
-                connectInfo.put("channelid", String.valueOf(id));
+                    Async async = new Async(getActivity(), connectInfo, "http://www.raphaelbischof.fr/messaging/?function=getmessages", 1);
+                    async.setOnDownloadCompleteListener(MessageFragment.this);
+                    async.execute();
 
-                Async async = new Async(getActivity(), connectInfo,"http://www.raphaelbischof.fr/messaging/?function=getmessages",1);
-                async.setOnDownloadCompleteListener(MessageFragment.this);
-                async.execute();
+                }
                 handler.postDelayed(this, 1000);
             }
         };
